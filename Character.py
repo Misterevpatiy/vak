@@ -6,7 +6,8 @@ class Character:
         self.x = 0
         self.y = 300
         self.side = 50
-        self.direction_x = "right"
+        self.direction_x = 1
+        self.direction_y = 1
         self.speed = 1
 
     def display(self, screen):
@@ -14,18 +15,14 @@ class Character:
 
     def move(self):
         self.x += self.direction_x
-        self.y -= self.direction_y
+        self.y += self.direction_y
         if self.y == 0:
-            self.direction_y = "left"
-        if self.direction_x == "right":
-            self.x += 1
-            self.y -= 1
-        if self.direction_x == "left":
-            self.x -= 1
-            self.y += 1
+            self.direction_y = 1
+        if self.y == 550:
+            self.direction_y = -1
         if self.x == 750:
-            self.direction_x = "left"
+            self.direction_x = -1
         if self.x == 0:
-            self.direction_x = "right"
+            self.direction_x = 1
 
 
